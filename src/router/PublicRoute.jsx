@@ -11,5 +11,4 @@ export const PublicRoute = ({ children }) => {
   return (logged)
             ? <Navigate to={ path } />
             : children
-  
 }

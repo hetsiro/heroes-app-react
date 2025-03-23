@@ -1,8 +1,12 @@
-import { Navigate, Route, Routes } from 'react-router';
+import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Navbar } from '../../ui/';
 import { DcPage, HeroPage, MarvelPage, SearchPage } from '../pages';
 
 export const HeroesRoutes = () => {
+
+  const path = useLocation();
+  localStorage.setItem( 'lastPath', path.pathname + path.search )
+
   return (
     <>
         <Navbar />
