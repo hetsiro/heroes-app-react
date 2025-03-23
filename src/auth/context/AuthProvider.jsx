@@ -2,12 +2,15 @@ import React, { useReducer } from 'react'
 import { AuthContext } from './AuthContext'
 import { authReducer } from './authReducer'
 import { types } from '../types/types'
+import { useLocation } from 'react-router'
 
 const initialState = {
   logged: false,
 }
 
 export const AuthProvider = ({ children }) => {
+
+  const path = useLocation();
 
   const init = () => {
     const user = JSON.parse( localStorage.getItem( 'user' ) );
@@ -39,7 +42,9 @@ export const AuthProvider = ({ children }) => {
       type: types.logout,
     }
 
-    localStorage.clear();
+    localStorage.removeItem('user');
+    localStorage.setItem( 'lastPath', path.pathname + path.search )
+    
     dispatch(action)
   }
 
