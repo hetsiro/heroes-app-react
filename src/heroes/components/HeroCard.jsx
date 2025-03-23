@@ -5,7 +5,7 @@ import './HeroCard.css';
 export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
   return (
       <Link to={`/hero/${id}`} className="my-card animate__animated animate__fadeIn">
-          <img src={`/assets/heroes/${id}.jpg`} className="img img-responsive" alt={superhero}/>
+          <img src={`${import.meta.env.BASE_URL}assets/heroes/${id}.jpg`} className="img img-responsive" alt={superhero}/>
           <div className="profile-name">{superhero}</div>
           <div className="profile-position">{alter_ego}</div>
           <div className="profile-overview">
